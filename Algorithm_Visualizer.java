@@ -12,7 +12,7 @@ public class Algorithm_Visualizer {
 
 
 class Window extends JFrame implements ActionListener {//inheriting JFrame
-    JFrame f; // Window
+    JFrame frame; // Window
     JMenuBar menuBar; // Object of Menu bar
     JMenu mainMenu, helpDesk; // Part of Menu bar
     JMenuItem menu_1,menu_2,menu_3,menu_4; // Items of Menu
@@ -20,7 +20,7 @@ class Window extends JFrame implements ActionListener {//inheriting JFrame
     JTextArea txtArea;
 
     Window() {
-        f = new JFrame("Algorithm_Visualizer");
+        frame = new JFrame("Algorithm_Visualizer");
 
         menuBar =new JMenuBar();
         mainMenu = new JMenu("Menu");
@@ -42,15 +42,14 @@ class Window extends JFrame implements ActionListener {//inheriting JFrame
         mainMenu.add(menu_1); mainMenu.add(menu_2); mainMenu.add(menu_3); helpDesk.add(menu_4);
         menuBar.add(mainMenu); menuBar.add(helpDesk);
         // f.add(b);//adding button on frame
-        f.add(txtArea); // adding text area on frame
-        f.setJMenuBar(menuBar);
-        f.setSize(400,400);
-        f.setLayout(null);
-        f.setVisible(true);
+        frame.add(txtArea); // adding text area on frame
+        frame.setJMenuBar(menuBar);
+        frame.setSize(400,400);
+        frame.setLayout(null);
+        frame.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent entry) // Functions for buttons
-    {
+    public void actionPerformed(ActionEvent entry) {
         if(entry.getSource()==menu_1)
             txtArea.cut();
         if(entry.getSource()==menu_2)
@@ -61,5 +60,4 @@ class Window extends JFrame implements ActionListener {//inheriting JFrame
             txtArea.setText("Help Me");
     }
 }
-
 
