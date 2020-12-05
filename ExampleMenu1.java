@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.*; 
 import java.awt.event.*; 
 
-public class menu1 extends JFrame implements ActionListener { 
+public class ExampleMenu1 extends JFrame implements ActionListener { 
 	// menubar 
 	static JMenuBar mb; 
 
@@ -22,10 +22,10 @@ public class menu1 extends JFrame implements ActionListener {
 	static JLabel l; 
 
 	// main class 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         
 		// create an object of the class 
-		menu1 m = new menu1(); 
+		ExampleMenu1 m = new ExampleMenu1(); 
 
 		// create a frame 
 		f = new JFrame("Menu demo"); 
