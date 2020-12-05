@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 
 public class Algorithm extends JFrame{
-
     // Menu Bar
     JMenuBar menuBar =new JMenuBar();
     JMenu mainMenu = new JMenu("Menu");
@@ -39,12 +39,52 @@ public class Algorithm extends JFrame{
     class ListenerClass implements ActionListener {
         String value;
 
+        // Project Main Logic (Moving Panels)
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == menu1) {
-                System.out.println("KUKU");
-
+                Sorting sort = new Sorting();
             }
         }
+    }
+
+}
+
+
+class Sorting extends Algorithm{
+    JFrame frameSorting = new JFrame("Sorting");
+    // Values
+    ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist
+
+    // Sorting Buttons
+    JButton jbtRandomize, jbtReset, jbtBubble, jbtInsertion, jbtSelection, jbtStart;  // Sorting Buttons
+    JPanel p1Sorting, p2Sorting;
+    Random rand = new Random();
+
+    Sorting(){
+        super();
+        // Buttons for sorting
+        jbtRandomize = new JButton("Randomize");//create button
+        jbtReset = new JButton("Reset");//create button
+        jbtBubble = new JButton("Bubble sort");//create button
+        jbtInsertion = new JButton("Insertion sort");//create button
+        jbtSelection = new JButton("Selection sort");//create button
+        jbtStart = new JButton("Start");//create button
+
+        // Panel for buttons
+        p1Sorting = new JPanel();
+        p1Sorting.setLayout(new GridLayout(6,1));
+
+        // Adding Buttons to the panel
+        p1Sorting.add(jbtRandomize); p1Sorting.add(jbtReset); p1Sorting.add(jbtSelection);
+        p1Sorting.add(jbtBubble); p1Sorting.add(jbtInsertion); p1Sorting.add(jbtStart);
+
+        // Adding frame
+        frameSorting.add(p1Sorting, BorderLayout.WEST);
+        frameSorting.setTitle("Sorting");
+        frameSorting.setSize(700,500);
+        frameSorting.setLocation(200, 100);
+        frameSorting.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameSorting.setVisible(true);
     }
 
 }
