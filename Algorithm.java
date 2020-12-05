@@ -50,7 +50,7 @@ public class Algorithm extends JFrame{
 }
 
 
-class Sorting extends Algorithm{
+class Sorting {
     JFrame frameSorting = new JFrame("Sorting");
     // Values
     ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist
@@ -61,7 +61,6 @@ class Sorting extends Algorithm{
     Random rand = new Random();
 
     Sorting(){
-        super();
         // Buttons for sorting
         jbtRandomize = new JButton("Randomize");//create button
         jbtReset = new JButton("Reset");//create button
@@ -72,7 +71,7 @@ class Sorting extends Algorithm{
 
         // Panel for buttons
         p1Sorting = new JPanel();
-        p1Sorting.setLayout(new GridLayout(6,1));
+        p1Sorting.setLayout(new GridLayout(7,1));
 
         // Adding Buttons to the panel
         p1Sorting.add(jbtRandomize); p1Sorting.add(jbtReset); p1Sorting.add(jbtSelection);
