@@ -1,29 +1,34 @@
-import java.awt.*; 
-import javax.swing.*; 
-import java.awt.event.*; 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 
 public class Menu extends JFrame {
+    // Creating Object
+    Sorting sort = new Sorting();
+
     // Menubar
-	static JMenuBar menuBar;
-    
-	// JMenu 
-	static JMenu mainMenu, helpDesk; 
+    static JMenuBar menuBar;
 
-	// Menu items 
-	static JMenuItem menuItem1, menuItem2, menuItem3, menuItem4; 
+    // JMenu
+    static JMenu mainMenu, helpDesk;
 
-	// A label 
-    static JLabel label; 
+    // Menu items
+    static JMenuItem menuItem1, menuItem2, menuItem3, menuItem4;
+
+    // A Panel
+    static JPanel pPanel1, pPanel2;
 
     Menu() {
 
-		// Create a label 
-        label = new JLabel("Welcome to Algorithm Visualizer!"); 
-        
+        // Create Panel
+        pPanel1 = new JPanel();
+        pPanel2 = new JPanel();
+
         // Create a menubar
         menuBar = new JMenuBar();
 
-        // Create a menu 
+        // Create a menu
         mainMenu = new JMenu("Menu");
         helpDesk = new JMenu("Help");
 
@@ -40,38 +45,53 @@ public class Menu extends JFrame {
         menuItem2.addActionListener(listener);
         menuItem3.addActionListener(listener);
 
-        // Add menu items to menu 
-        mainMenu.add(menuItem1); 
-        mainMenu.add(menuItem2); 
-        mainMenu.add(menuItem3); 
+        // Add menu items to menu
+        mainMenu.add(menuItem1);
+        mainMenu.add(menuItem2);
+        mainMenu.add(menuItem3);
         helpDesk.add(menuItem4);
 
-		// Add menu to menu bar 
-        menuBar.add(mainMenu); 
+        // Add menu to menu bar
+        menuBar.add(mainMenu);
         menuBar.add(helpDesk);
 
-        // Add menubar to frame 
-        setJMenuBar(menuBar); 
-        
-		// Add label 
-        add(label); 
+        // Add menubar to frame
+        setJMenuBar(menuBar);
+
+        // Add Panels
+        pPanel1.setBackground(Color.CYAN);
+        pPanel2.setBackground(Color.YELLOW);
+
+        // Add Panel
+        pPanel1.add(sort.p1Sorting);
+        pPanel2.add(sort.p2Sorting);
+        sort.p1Sorting.setVisible(false);
+        sort.p2Sorting.setVisible(false);
+
+        // Add Panels to the panel
+        add(pPanel1, BorderLayout.WEST);
+        add(pPanel2, BorderLayout.CENTER);
 
         setTitle("EightSoft");
-        setSize(400,400);
-        // setLocation(200, 100);
+        setSize(700,500);
+        setLocation(200, 100);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     class ListenerClass implements ActionListener {
-        String value;
 
         // Project Main Logic (Moving Panels)
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == menuItem1) {
-                label.setText("Wow Congratulations!"); 
+                sort.p1Sorting.setVisible(false);
+                sort.p2Sorting.setVisible(false);
+            }
+            else if (e.getSource() == menuItem2) {
+                sort.p1Sorting.setVisible(true);
+                sort.p2Sorting.setVisible(true);
             }
         }
     }
-    
+
 } // Menu
