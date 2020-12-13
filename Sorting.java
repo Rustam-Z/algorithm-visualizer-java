@@ -54,15 +54,9 @@ public class Sorting extends Main {
         pPanel1.setBackground(Color.CYAN);
         pPanel2.setBackground(Color.YELLOW);
 
-        // pPanel1.add(p1Sorting);
-        // pPanel2.add(p2Sorting);
-        // p1Sorting.setVisible(true);
-        // p2Sorting.setVisible(true);
-
         // Add Panels to the panel
         add(pPanel1, BorderLayout.NORTH);
         add(pPanel2, BorderLayout.CENTER);
 
     }
-
 }

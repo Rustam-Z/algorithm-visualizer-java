@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*; 
 import java.awt.event.*; 
 
-public class Main extends JFrame {
+public class Main extends JFrame {    
     // Menubar
 	static JMenuBar menuBar;
     
@@ -48,7 +48,7 @@ public class Main extends JFrame {
         
         setTitle("Eightsoft");
         setSize(800, 800);
-        // setLocation(200, 100);
+        setLocation(300, 5);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -64,6 +64,7 @@ public class Main extends JFrame {
             else if (e.getSource() == menuItem2) {
                 // Creating Object
                 Sorting sort = new Sorting();   
+                setVisible(false); // will close the previous window
                 System.out.println("Menu Item 2 choosed");
             }
             else if (e.getSource() == menuItem2) {
