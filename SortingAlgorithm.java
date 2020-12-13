@@ -86,9 +86,10 @@ public class SortingAlgorithm extends JPanel {
                     for(traversing_index = 1; traversing_index < (SIZE - current_index); traversing_index++) {
                         if(bar_height[traversing_index - 1] > bar_height[traversing_index]) {
                             swap(traversing_index, traversing_index - 1);
+                            traversing_index--; // just for annimation
 
-                            Thread.sleep(1);
-                            repaint();
+                            Thread.sleep(1); // controls the speed
+                            repaint(); //
                         }
                     }   
                 }
