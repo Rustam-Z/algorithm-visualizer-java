@@ -20,12 +20,6 @@ public class SortingAlgorithm extends JPanel {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
-        //initSorter();
-        initShuffler();
-    }
-
-    public void startSorting() {
-        initSorter();
         initShuffler();
     }
 

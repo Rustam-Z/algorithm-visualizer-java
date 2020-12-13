@@ -70,14 +70,16 @@ public class Sorting extends Main {
 
     class ListenerClass implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == jbtRandomize)
-                System.out.println("jbtRandomize button clicked");
+            if (e.getSource() == jbtRandomize) {
+                sortAlgo.initShuffler();
+            }
             else if (e.getSource() == jbtMerge)
                 System.out.println("jbtMerge button clicked");
             else if (e.getSource() == jbtBubble)
                 System.out.println("jbtBubble button clicked");
             else if (e.getSource() == jbtInsertion) {
-                sortAlgo.startSorting(); // Sorting algotithm
+                sortAlgo.initSorter(); // Sorting algotithm
+                sortAlgo.initShuffler();
             }
             else if (e.getSource() == jbtSelection)
                 System.out.println("jbtSelection button clicked");
