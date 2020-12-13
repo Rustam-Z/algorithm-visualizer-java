@@ -5,9 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 public class SortingAlgorithm extends JPanel {
@@ -22,6 +20,11 @@ public class SortingAlgorithm extends JPanel {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
+        //initSorter();
+        initShuffler();
+    }
+
+    public void startSorting() {
         initSorter();
         initShuffler();
     }
@@ -108,5 +111,4 @@ public class SortingAlgorithm extends JPanel {
         bar_height[indexA] = bar_height[indexB];
         bar_height[indexB] = temp;
     }
-
 }

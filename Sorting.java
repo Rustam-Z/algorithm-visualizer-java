@@ -4,11 +4,7 @@ import java.awt.event.*;
 import java.util.*;
 
 public class Sorting extends Main {
-    // the main drawings 
     SortingAlgorithm sortAlgo = new SortingAlgorithm();
-
-    // Values
-    ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist
 
     // Panels
     JPanel pPanel1, pPanel2;
@@ -80,12 +76,14 @@ public class Sorting extends Main {
                 System.out.println("jbtMerge button clicked");
             else if (e.getSource() == jbtBubble)
                 System.out.println("jbtBubble button clicked");
-            else if (e.getSource() == jbtInsertion)
-                new SortingAlgorithm(); // Sorting algotithm
+            else if (e.getSource() == jbtInsertion) {
+                sortAlgo.startSorting(); // Sorting algotithm
+            }
             else if (e.getSource() == jbtSelection)
                 System.out.println("jbtSelection button clicked");
-            else if (e.getSource() == jbtStart)
+            else if (e.getSource() == jbtStart) {
                 System.out.println("jbtStart button clicked");
+           }
 
             // setVisible(false); // will close the previous window
         }
