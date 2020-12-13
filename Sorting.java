@@ -75,7 +75,7 @@ public class Sorting extends Main {
             else if (e.getSource() == jbtBubble)
                 System.out.println("jbtBubble button clicked");
             else if (e.getSource() == jbtInsertion) {
-                sortAlgo.initSorter(); // Sorting algotithm
+                sortAlgo.insertionSort(); // Sorting algotithm
                 sortAlgo.initShuffler();
             }
             else if (e.getSource() == jbtSelection)
