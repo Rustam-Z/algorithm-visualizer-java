@@ -10,7 +10,7 @@ import javax.swing.SwingWorker;
 
 public class SortingAlgorithm extends JPanel {
     private final int WIDTH = 800, HEIGHT = WIDTH * 9 /16;
-    private final int SIZE = 200; // the number if sorting elements
+    private final int SIZE = 100; // the number if sorting elements
     private final float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
     private float[] bar_height = new float[SIZE]; // height of bars
     private SwingWorker<Void, Void> shuffler, sorter;
@@ -20,7 +20,7 @@ public class SortingAlgorithm extends JPanel {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
-        initShuffler(); // shuffle each bar
+        //initShuffler(); // shuffle each bar
     }
 
     @Override
@@ -56,7 +56,6 @@ public class SortingAlgorithm extends JPanel {
 
     public void insertionSort() {
         /*Insertion sort algorithm*/
-
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -78,9 +77,31 @@ public class SortingAlgorithm extends JPanel {
         };
     }
 
+    public void bubbleSort() {
+        /*Buuble sort algorithm*/
+        sorter = new SwingWorker<>() {
+            @Override
+            public Void doInBackground() throws InterruptedException {
+                for(current_index = 0; current_index < SIZE; current_index++) {
+                    for(traversing_index = 1; traversing_index < (SIZE - current_index); traversing_index++) {
+                        if(bar_height[traversing_index - 1] > bar_height[traversing_index]) {
+                            swap(traversing_index, traversing_index - 1);
+
+                            Thread.sleep(1);
+                            repaint();
+                        }
+                    }   
+                }
+                current_index = 0;
+                traversing_index = 0;
+
+                return null;
+            }
+        };
+    }
+
     public void initShuffler() {
         /*Shuffles each bar*/
-
         shuffler = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {

@@ -1,10 +1,20 @@
 # Algorithm Visualizer in Java 
- 
-By @Alimov-8👨🏻‍💻 and @Rustam-Z👨🏼‍💻  
 
-Updated: December 5, 2020
+By @Alimov-8👨🏻‍💻 and @Rustam-Z👨🏼‍💻 
 
-### References:
+Updated: December 13, 2020
+
+- Sorting Algorithms Visualizer
+- Picture Puzzle Sorter `TODO`
+- Pathfinding algorithm `TODO`
+
+## Skills Learned:
+- Multi-Threading using Swing Worker
+- Customising Swing Components
+- Graphics 2D
+- Apply Sorting Algorithms
+
+## References:
 - https://clementmihailescu.github.io/Sorting-Visualizer/
 
 - https://www.geeksforgeeks.org/java-swing-jmenubar/

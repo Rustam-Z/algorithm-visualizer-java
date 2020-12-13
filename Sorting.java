@@ -72,11 +72,15 @@ public class Sorting extends Main {
             }
             else if (e.getSource() == jbtMerge)
                 System.out.println("jbtMerge button clicked");
-            else if (e.getSource() == jbtBubble)
+            else if (e.getSource() == jbtBubble) {
+                sortAlgo.bubbleSort(); // Bubble sort algotithm
+                sortAlgo.initShuffler(); // shuffling
                 System.out.println("jbtBubble button clicked");
+            }
             else if (e.getSource() == jbtInsertion) {
-                sortAlgo.insertionSort(); // Sorting algotithm
-                sortAlgo.initShuffler();
+                sortAlgo.insertionSort(); // Insertion algotithm
+                sortAlgo.initShuffler(); // shuffling
+                System.out.println("jbtInsertion button clicked");
             }
             else if (e.getSource() == jbtSelection)
                 System.out.println("jbtSelection button clicked");
