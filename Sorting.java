@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.*;
 
 public class Sorting extends Main {
+    // the main drawings 
     SortingAlgorithm sortAlgo = new SortingAlgorithm();
 
     // Values
