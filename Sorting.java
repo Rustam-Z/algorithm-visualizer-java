@@ -23,14 +23,11 @@ public class Sorting extends Main {
         // Panel for options (bubble sort, insertion sort...)
         pPanel1 = new JPanel();        
         pPanel1.setLayout(new GridLayout(1, 7));
+        pPanel1.setBackground(Color.CYAN);
 
         // Panel for main algorithm
         pPanel2 = new JPanel();
         pPanel2.setLayout(new BorderLayout());
-
-        // Set backgrounds for Panels
-        pPanel1.setBackground(Color.CYAN);
-        pPanel2.setBackground(Color.YELLOW);
 
         // Buttons for sorting
         jbtRandomize = new JButton("Randomize");//create button
@@ -39,12 +36,12 @@ public class Sorting extends Main {
         jbtInsertion = new JButton("Insertion Sort");//create button
         jbtSelection = new JButton("Selection Sort");//create button
         jbtStart = new JButton("Start");//create button
-        jbtStart.setBackground(Color.GREEN);
+        jbtStart.setBackground(Color.GRAY);
         
         // Progress bar
-        jb1 = new JProgressBar(0,100);
-        jb1.setValue(rand.nextInt(100));
-        jb1.setStringPainted(true);
+        // jb1 = new JProgressBar(0,100);
+        // jb1.setValue(rand.nextInt(100));
+        // jb1.setStringPainted(true);
 
         // Adding elements to Panel 1
         pPanel1.add(jbtRandomize); pPanel1.add(jbtMerge); pPanel1.add(jbtSelection);
@@ -85,7 +82,7 @@ public class Sorting extends Main {
                 System.out.println("jbtSelection button clicked");
             else if (e.getSource() == jbtStart) {
                 System.out.println("jbtStart button clicked");
-           }
+            }
 
             // setVisible(false); // will close the previous window
         }

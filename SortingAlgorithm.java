@@ -20,13 +20,14 @@ public class SortingAlgorithm extends JPanel {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
-        initShuffler();
+        initShuffler(); // shuffle each bar
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        // Drawing the rectangles
         Graphics2D g2d = (Graphics2D)g;
         g2d.setColor(Color.CYAN);
         Rectangle2D.Float bar;
@@ -35,23 +36,20 @@ public class SortingAlgorithm extends JPanel {
             g2d.fill(bar); // g2d.draw(bar);
         }
 
+        // Color setter for the current object
         g2d.setColor(Color.RED);
         bar = new Rectangle2D.Float(current_index * BAR_WIDTH, 0, BAR_WIDTH, bar_height[current_index]);
         g2d.fill(bar);
 
-        g2d.setColor(Color.GREEN);
+        // Color setter for the traversing object
+        g2d.setColor(Color.YELLOW);
         bar = new Rectangle2D.Float(traversing_index * BAR_WIDTH, 0, BAR_WIDTH, bar_height[traversing_index]);
         g2d.fill(bar);
     }
-    
-    public void initBarHeight() {
-        float interval = (float)HEIGHT / SIZE;
-        for(int i = 0; i < SIZE; i++) {
-            bar_height[i] = i * interval;
-        }
-    }
 
     public void initSorter() {
+        /*Insertion sort algorithm*/
+
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -74,6 +72,8 @@ public class SortingAlgorithm extends JPanel {
     }
 
     public void initShuffler() {
+        /*Shuffles each bar*/
+
         shuffler = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -90,7 +90,6 @@ public class SortingAlgorithm extends JPanel {
                 }
                 return null;
             }
-
             @Override
 			public void done() {
 				super.done();
@@ -99,8 +98,17 @@ public class SortingAlgorithm extends JPanel {
         };
         shuffler.execute();
     }
+    
+    public void initBarHeight() {
+        /*Initialize the height of each bar*/
+        float interval = (float)HEIGHT / SIZE;
+        for(int i = 0; i < SIZE; i++) {
+            bar_height[i] = i * interval;
+        }
+    }
 
     public void swap(int indexA, int indexB) {
+        /*Swaps the elements*/
         float temp = bar_height[indexA];
         bar_height[indexA] = bar_height[indexB];
         bar_height[indexB] = temp;
