@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*; 
 import java.awt.event.*; 
 
-public class Menu extends JFrame {
+public class Main extends JFrame {
     // Menubar
 	static JMenuBar menuBar;
     
@@ -12,14 +12,7 @@ public class Menu extends JFrame {
 	// Menu items 
 	static JMenuItem menuItem1, menuItem2, menuItem3, menuItem4; 
 
-	// A label 
-    static JLabel label; 
-
-    Menu() {
-
-		// Create a label 
-        label = new JLabel("Welcome to Algorithm Visualizer!"); 
-        
+    Main() {        
         // Create a menubar
         menuBar = new JMenuBar();
 
@@ -53,11 +46,8 @@ public class Menu extends JFrame {
         // Add menubar to frame 
         setJMenuBar(menuBar); 
         
-		// Add label 
-        add(label); 
-
-        setTitle("EightSoft");
-        setSize(400,400);
+        setTitle("Eightsoft");
+        setSize(800, 800);
         // setLocation(200, 100);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +59,15 @@ public class Menu extends JFrame {
         // Project Main Logic (Moving Panels)
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == menuItem1) {
-                label.setText("Wow Congratulations!"); 
+                System.out.println("Menu Item 1 choosed");
+            }
+            else if (e.getSource() == menuItem2) {
+                // Creating Object
+                Sorting sort = new Sorting();   
+                System.out.println("Menu Item 2 choosed");
+            }
+            else if (e.getSource() == menuItem2) {
+                System.out.println("Menu Item 3 choosed");
             }
         }
     }
