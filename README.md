@@ -8,7 +8,10 @@ Updated: December 13, 2020
 - Picture Puzzle Sorter `TODO`
 - Pathfinding algorithm `TODO`
 
-## Skills Learned:
+## First Prototype
+<img src="mvp1.gif">
+
+## Skills Learned
 - Multi-Threading using Swing Worker
 - Customising Swing Components
 - Graphics 2D

@@ -1,3 +1,5 @@
+package examples;
+
 // Insertion sort visualizer
 
 import java.awt.Color;
@@ -114,7 +116,7 @@ public class InsertionSort extends JPanel {
     public static void main(String args[]) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Insertion Sort");
-			frame.setResizable(false);
+			//frame.setResizable(false);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setContentPane(new InsertionSort());
 			frame.validate();
