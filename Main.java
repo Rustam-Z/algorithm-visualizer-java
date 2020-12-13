@@ -64,12 +64,12 @@ public class Main extends JFrame {
             else if (e.getSource() == menuItem2) {
                 // Creating Object
                 Sorting sort = new Sorting();   
-                setVisible(false); // will close the previous window
                 System.out.println("Menu Item 2 choosed");
             }
             else if (e.getSource() == menuItem2) {
                 System.out.println("Menu Item 3 choosed");
             }
+            setVisible(false); // will close the previous window
         }
     }
     

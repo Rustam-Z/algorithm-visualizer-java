@@ -4,6 +4,8 @@ import java.awt.event.*;
 import java.util.*;
 
 public class Sorting extends Main {
+    SortingAlgorithm sortAlgo = new SortingAlgorithm();
+
     // Values
     ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist
 
@@ -27,7 +29,11 @@ public class Sorting extends Main {
 
         // Panel for main algorithm
         pPanel2 = new JPanel();
-        pPanel2.setLayout(new GridLayout(10, 1));
+        pPanel2.setLayout(new BorderLayout());
+
+        // Set backgrounds for Panels
+        pPanel1.setBackground(Color.CYAN);
+        pPanel2.setBackground(Color.YELLOW);
 
         // Buttons for sorting
         jbtRandomize = new JButton("Randomize");//create button
@@ -48,11 +54,8 @@ public class Sorting extends Main {
         pPanel1.add(jbtBubble); pPanel1.add(jbtInsertion); pPanel1.add(jbtStart);
 
         // Adding elements to Panel 2
-        pPanel2.add(jb1, BorderLayout.WEST);
-
-        // Set backgrounds for Panels
-        pPanel1.setBackground(Color.CYAN);
-        pPanel2.setBackground(Color.YELLOW);
+        pPanel2.add(sortAlgo, BorderLayout.CENTER);
+        // pPanel2.add(jb1, BorderLayout.WEST);
 
         // Register listeners
         ListenerClass listener = new ListenerClass();
@@ -77,11 +80,13 @@ public class Sorting extends Main {
             else if (e.getSource() == jbtBubble)
                 System.out.println("jbtBubble button clicked");
             else if (e.getSource() == jbtInsertion)
-                System.out.println("jbtInsertion button clicked");
+                new SortingAlgorithm(); // Sorting algotithm
             else if (e.getSource() == jbtSelection)
                 System.out.println("jbtSelection button clicked");
             else if (e.getSource() == jbtStart)
                 System.out.println("jbtStart button clicked");
+
+            // setVisible(false); // will close the previous window
         }
     } 
 }

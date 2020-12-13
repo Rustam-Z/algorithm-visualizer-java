@@ -11,14 +11,14 @@ import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 public class InsertionSort extends JPanel {
-    private final int WIDTH = 1000, HEIGHT = WIDTH * 9 /16;
+    private final int WIDTH = 800, HEIGHT = WIDTH * 9 /16;
     private final int SIZE = 200; // the number if sorting elements
     private final float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
     private float[] bar_height = new float[SIZE]; // height of bars
     private SwingWorker<Void, Void> shuffler, sorter;
     private int current_index, traversing_index;
 
-    private InsertionSort() {
+    InsertionSort() {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
@@ -54,7 +54,7 @@ public class InsertionSort extends JPanel {
         }
     }
 
-    private void initSorter() {
+    public void initSorter() {
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -76,7 +76,7 @@ public class InsertionSort extends JPanel {
         };
     }
 
-    private void initShuffler() {
+    public void initShuffler() {
         shuffler = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -93,7 +93,7 @@ public class InsertionSort extends JPanel {
                 }
                 return null;
             }
-            
+
             @Override
 			public void done() {
 				super.done();
@@ -103,7 +103,7 @@ public class InsertionSort extends JPanel {
         shuffler.execute();
     }
 
-    private void swap(int indexA, int indexB) {
+    public void swap(int indexA, int indexB) {
         float temp = bar_height[indexA];
         bar_height[indexA] = bar_height[indexB];
         bar_height[indexB] = temp;
