@@ -29,3 +29,10 @@ Updated: December 13, 2020
 - https://www.youtube.com/watch?v=RxjXC1SM1A4
 
 - https://stackoverflow.com/questions/4246351/creating-random-colour-in-java
+
+- https://stackoverflow.com/questions/782265/how-do-i-use-swingworker-in-java
+
+- https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html
+
+- https://stackoverflow.com/questions/1097366/java-swing-revalidate-vs-repaint
+

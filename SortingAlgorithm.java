@@ -1,3 +1,5 @@
+// Implementation of Sorting algorithms
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -20,14 +22,15 @@ public class SortingAlgorithm extends JPanel {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
-        //initShuffler(); // shuffle each bar
+        // initShuffler(); // shuffle each bar
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Random random = new Random(); // Random
+        // Create randomizer
+        Random random = new Random(); 
 
         // Drawing the rectangles
         Graphics2D g2d = (Graphics2D)g;
@@ -35,7 +38,7 @@ public class SortingAlgorithm extends JPanel {
 
         for(int i = 0; i < SIZE; i++ ) {
             final float hue = random.nextFloat();
-            final float saturation = 0.9f;//1.0 for brilliant, 0.0 for dull
+            final float saturation = 0.9f; //1.0 for brilliant, 0.0 for dull
             final float luminance = 1.0f; //1.0 for brighter, 0.0 for black
 
             g2d.setColor(Color.getHSBColor(hue, saturation, luminance));
@@ -78,7 +81,7 @@ public class SortingAlgorithm extends JPanel {
     }
 
     public void bubbleSort() {
-        /*Buuble sort algorithm*/
+        /*Bubble sorting algorithm*/
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -89,7 +92,7 @@ public class SortingAlgorithm extends JPanel {
                             traversing_index--; // just for annimation
 
                             Thread.sleep(1); // controls the speed
-                            repaint(); //
+                            repaint(); // we need it because we ofter replace the contents of a JPanel
                         }
                     }   
                 }
