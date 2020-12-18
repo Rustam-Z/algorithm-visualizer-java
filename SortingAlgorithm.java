@@ -5,14 +5,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.security.PublicKey;
 import java.util.Random;
 
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 
 public class SortingAlgorithm extends JPanel {
-    private final int WIDTH = 800, HEIGHT = WIDTH * 9 /16;
-    private final int SIZE = 100; // the number if sorting elements
+    private final int WIDTH = 800, HEIGHT = WIDTH * 9 / 16;
+    public int SIZE = 50; // the number if sorting elements
     private final float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
     private float[] bar_height = new float[SIZE]; // height of bars
     private SwingWorker<Void, Void> shuffler, sorter;
@@ -82,6 +83,32 @@ public class SortingAlgorithm extends JPanel {
 
     public void bubbleSort() {
         /*Bubble sorting algorithm*/
+        sorter = new SwingWorker<>() {
+            @Override
+            public Void doInBackground() throws InterruptedException {
+                for(current_index = 0; current_index < SIZE; current_index++) {
+                    for(traversing_index = 1; traversing_index < (SIZE - current_index); traversing_index++) {
+                        if(bar_height[traversing_index - 1] > bar_height[traversing_index]) {
+                            swap(traversing_index, traversing_index - 1);
+                            traversing_index--; // just for annimation
+
+                            Thread.sleep(1); // controls the speed
+                            repaint(); // we need it because we ofter replace the contents of a JPanel
+                        }
+                    }   
+                }
+                current_index = 0;
+                traversing_index = 0;
+
+                return null;
+            }
+        };
+    }
+
+    public void mergeSort() {
+        /*Merge sorting algorithm*/
+        // Change code from bubbleSort to mergeSort
+
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {

@@ -63,7 +63,7 @@ public class Main extends JFrame {
             }
             else if (e.getSource() == menuItem2) {
                 // Creating Object
-                Sorting sort = new Sorting();   
+                new Sorting();   
                 System.out.println("Menu Item 2 choosed");
             }
             else if (e.getSource() == menuItem2) {

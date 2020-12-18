@@ -3,7 +3,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class Sorting extends Main {
     // Object of the SortingAlgorithm, which includes the sorting algorithms
@@ -30,26 +32,26 @@ public class Sorting extends Main {
         pPanel2.setLayout(new BorderLayout());
 
         // Buttons
-        jbtRandomize = new JButton("Randomize");//create button
-        jbtMerge = new JButton("Merge Sort");//create button
-        jbtBubble = new JButton("Bubble Sort");//create button
-        jbtInsertion = new JButton("Insertion Sort");//create button
-        jbtSelection = new JButton("Selection Sort");//create button
-        jbtStart = new JButton("Start");//create button
+        jbtRandomize = new JButton("Randomize");
+        jbtMerge = new JButton("Merge Sort");
+        jbtBubble = new JButton("Bubble Sort");
+        jbtInsertion = new JButton("Insertion Sort");
+        jbtSelection = new JButton("Selection Sort");
+        jbtStart = new JButton("Start");
         jbtStart.setBackground(Color.GRAY);
         
-        // Progress bar
-        // jb1 = new JProgressBar(0,100);
-        // jb1.setValue(rand.nextInt(100));
-        // jb1.setStringPainted(true);
+        // Slider
+        JSlider slider = new JSlider(0, 100, 0);
+        slider.setPreferredSize(new Dimension(150, 30));
 
         // Adding elements to pPanel1
-        pPanel1.add(jbtRandomize); pPanel1.add(jbtStart);
+        pPanel1.add(jbtRandomize);
         pPanel1.add(jbtMerge); pPanel1.add(jbtSelection); pPanel1.add(jbtBubble); pPanel1.add(jbtInsertion);
+        // pPanel1.add(jbtStart);
+        pPanel1.add(slider, BorderLayout.WEST);
 
         // Adding elements to pPanel2
         pPanel2.add(sortAlgo, BorderLayout.CENTER);
-        // pPanel2.add(jb1, BorderLayout.WEST);
 
         // Register listener, event handling
         ListenerClass listener = new ListenerClass();
@@ -63,6 +65,13 @@ public class Sorting extends Main {
         // Add Panels to the Main JFrame
         add(pPanel1, BorderLayout.NORTH);
         add(pPanel2, BorderLayout.CENTER);
+
+        // Slider settings
+        slider.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent event) {
+                int value = slider.getValue();
+            }
+        });
     }
 
     class ListenerClass implements ActionListener {
@@ -73,17 +82,16 @@ public class Sorting extends Main {
                 sortAlgo.initShuffler();
             }
             else if (e.getSource() == jbtMerge) {
-                System.out.println("jbtMerge button clicked");
+                sortAlgo.mergeSort(); // Bubble sort algotithm
+                sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtBubble) {
                 sortAlgo.bubbleSort(); // Bubble sort algotithm
                 sortAlgo.initShuffler(); // shuffling
-                System.out.println("jbtBubble button clicked");
             }
             else if (e.getSource() == jbtInsertion) {
                 sortAlgo.insertionSort(); // Insertion algotithm
                 sortAlgo.initShuffler(); // shuffling
-                System.out.println("jbtInsertion button clicked");
             }
             else if (e.getSource() == jbtSelection) {
                 System.out.println("jbtSelection button clicked");

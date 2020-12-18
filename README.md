@@ -36,3 +36,6 @@ Updated: December 13, 2020
 
 - https://stackoverflow.com/questions/1097366/java-swing-revalidate-vs-repaint
 
+- Merge sort: https://www.baeldung.com/java-merge-sort
+
+- http://www.java2s.com/Tutorials/Java/Swing/JSlider/Add_change_event_listener_to_a_JSlider_in_Java.htm
