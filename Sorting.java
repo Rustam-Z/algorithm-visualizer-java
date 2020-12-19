@@ -21,7 +21,7 @@ public class Sorting extends Main {
     // Progress Bar
     JProgressBar jb1;
 
-    Sorting(){
+    public Sorting(){
         // Panel for options (bubble sort, insertion sort...)
         pPanel1 = new JPanel();        
         pPanel1.setLayout(new GridLayout(1, 7));

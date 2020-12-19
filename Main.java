@@ -1,6 +1,5 @@
-import java.awt.*; 
-import javax.swing.*; 
-import java.awt.event.*; 
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Main extends JFrame {    
     // Menubar
