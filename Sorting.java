@@ -94,7 +94,8 @@ public class Sorting extends Main {
                 sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtSelection) {
-                System.out.println("jbtSelection button clicked");
+                sortAlgo.selectionSort(); // Insertion algotithm
+                sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtStart) {
                 System.out.println("jbtStart button clicked");

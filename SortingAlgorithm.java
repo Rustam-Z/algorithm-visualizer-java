@@ -59,7 +59,7 @@ public class SortingAlgorithm extends JPanel {
     }
 
     public void insertionSort() {
-        /*Insertion sort algorithm*/
+        /*Insertion sort algorithm*/ 
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
@@ -108,6 +108,7 @@ public class SortingAlgorithm extends JPanel {
     public void mergeSort() {
         /*Merge sorting algorithm*/
         // Change code from bubbleSort to mergeSort
+        // TODO
 
         sorter = new SwingWorker<>() {
             @Override
@@ -123,6 +124,37 @@ public class SortingAlgorithm extends JPanel {
                         }
                     }   
                 }
+                current_index = 0;
+                traversing_index = 0;
+
+                return null;
+            }
+        };
+    }
+
+    
+    public void selectionSort() {
+        /*Merge sorting algorithm*/
+        // Change code from bubbleSort to mergeSort
+        // TODO
+
+        sorter = new SwingWorker<>() {
+            @Override
+            public Void doInBackground() throws InterruptedException {
+                for(current_index = 0; current_index < SIZE-1; current_index++) {
+                    int min_index = current_index;
+                    for(int traversing_index = current_index + 1; traversing_index < SIZE; traversing_index++) {
+                        if (bar_height[traversing_index] < bar_height[min_index]) {
+                            min_index = traversing_index;
+                        }
+                    }
+
+                    swap(current_index, min_index);
+                    Thread.sleep(1); // controls the speed
+                    repaint(); // we need it because we ofter replace the contents of a JPanel
+                
+                } 
+ 
                 current_index = 0;
                 traversing_index = 0;
 
