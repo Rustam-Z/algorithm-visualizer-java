@@ -20,10 +20,10 @@ public class Main extends JFrame {
         helpDesk = new JMenu("Help");
 
         // Create a menu items
-        menuItem1 = new JMenuItem("Path Finding");
-        menuItem2 = new JMenuItem("Sorting Techniques");
-        menuItem3 = new JMenuItem("Puzzle Sorting");
-        menuItem4 = new JMenuItem("How it Works");
+        menuItem1 = new JMenuItem("Path Finding"); // Its for future vision
+        menuItem2 = new JMenuItem("Sorting Techniques"); // Done
+        menuItem3 = new JMenuItem("Puzzle Sorting"); // Its for future vision
+        menuItem4 = new JMenuItem("How it Works"); // About
 
         ListenerClass listener = new ListenerClass();
 
@@ -58,7 +58,7 @@ public class Main extends JFrame {
         // Project Main Logic (Moving Panels)
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == menuItem1) {
-                System.out.println("Menu Item 1 choosed");
+                System.out.println(" Path Finding Algorith (We will add it in future for portfolio)");
             }
             else if (e.getSource() == menuItem2) {
                 // Creating Object
@@ -66,7 +66,7 @@ public class Main extends JFrame {
                 System.out.println("Menu Item 2 choosed");
             }
             else if (e.getSource() == menuItem2) {
-                System.out.println("Menu Item 3 choosed");
+                System.out.println(" Path Finding Algorith (We will add it in future for portfolio)");
             }
             setVisible(false); // will close the previous window
         }
