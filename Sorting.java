@@ -21,7 +21,7 @@ public class Sorting extends Main {
     // Progress Bar
     JProgressBar jb1;
 
-    JSlider slider = new JSlider(0, 200, 0);
+    JSlider slider = new JSlider(0, 100, 2);
 
     public Sorting(){
         // Panel for options (bubble sort, insertion sort...)
@@ -43,9 +43,9 @@ public class Sorting extends Main {
         jbtStart.setBackground(Color.GRAY);
         
         // Slider
-        slider.setPreferredSize(new Dimension(150, 30));
-        slider.setMajorTickSpacing(50);
-        slider.setPaintTicks(false);
+        // slider.setPreferredSize(new Dimension(150, 30));
+        // slider.setMajorTickSpacing(50);
+        // slider.setPaintTicks(false);
 
         // Adding elements to pPanel1
         pPanel1.add(jbtRandomize);
@@ -112,12 +112,6 @@ public class Sorting extends Main {
             else if (e.getSource() == jbtStart) {
                 System.out.println("jbtStart button clicked");
             }
-            // else if(e.getSource() ==){
-
-            // }else{
-            //     S
-            // }
-            // setVisible(false); // will close the previous window
         }
     } // ListenerClass
 

@@ -182,7 +182,7 @@ public class SortingAlgorithm extends JPanel {
                     randow_index = new Random().nextInt(getSIZE());
                     swap(j, randow_index);
 
-                    Thread.sleep(10);
+                    Thread.sleep(20);
                     repaint();
                 }
                 return null;
