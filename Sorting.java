@@ -21,6 +21,8 @@ public class Sorting extends Main {
     // Progress Bar
     JProgressBar jb1;
 
+    JSlider slider = new JSlider(0, 200, 0);
+
     public Sorting(){
         // Panel for options (bubble sort, insertion sort...)
         pPanel1 = new JPanel();        
@@ -41,8 +43,9 @@ public class Sorting extends Main {
         jbtStart.setBackground(Color.GRAY);
         
         // Slider
-        JSlider slider = new JSlider(0, 100, 0);
         slider.setPreferredSize(new Dimension(150, 30));
+        slider.setMajorTickSpacing(50);
+        slider.setPaintTicks(false);
 
         // Adding elements to pPanel1
         pPanel1.add(jbtRandomize);
@@ -68,8 +71,16 @@ public class Sorting extends Main {
 
         // Slider settings
         slider.addChangeListener(new ChangeListener() {
+            @Override
             public void stateChanged(ChangeEvent event) {
                 int value = slider.getValue();
+                sortAlgo.setSIZE(value);
+                // Graphics g = new Graphics();
+                // sortAlgo.initBarHeight();
+                sortAlgo.BAR_WIDTH = (float)800 / sortAlgo.getSIZE(); // bar width
+                sortAlgo.repaint();
+                System.out.println(value);
+                
             }
         });
     }
@@ -78,11 +89,12 @@ public class Sorting extends Main {
         // Handles the Button operations
 
         public void actionPerformed(ActionEvent e) {
+            
             if (e.getSource() == jbtRandomize) {
                 sortAlgo.initShuffler();
             }
             else if (e.getSource() == jbtMerge) {
-                sortAlgo.mergeSort(); // Bubble sort algotithm
+                sortAlgo.mergeSort(); // Merge sort algotithm
                 sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtBubble) {
@@ -100,6 +112,11 @@ public class Sorting extends Main {
             else if (e.getSource() == jbtStart) {
                 System.out.println("jbtStart button clicked");
             }
+            // else if(e.getSource() ==){
+
+            // }else{
+            //     S
+            // }
             // setVisible(false); // will close the previous window
         }
     } // ListenerClass

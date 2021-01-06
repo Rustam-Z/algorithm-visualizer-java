@@ -13,7 +13,7 @@ import javax.swing.SwingWorker;
 public class SortingAlgorithm extends JPanel {
     private final int WIDTH = 800, HEIGHT = WIDTH * 9 / 16;
     public int SIZE = 100; // the number if sorting elements
-    private final float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
+    public float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
     private float[] bar_height = new float[SIZE]; // height of bars
     private SwingWorker<Void, Void> shuffler, sorter;
     private int current_index, traversing_index;
@@ -23,6 +23,14 @@ public class SortingAlgorithm extends JPanel {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initBarHeight(); // initialize the height of each bar
         // initShuffler(); // shuffle each bar
+    }
+    
+    public void setSIZE(int SIZE) {
+        this.SIZE = SIZE;
+    }
+
+    int getSIZE() {
+        return SIZE;
     }
 
     @Override
@@ -37,7 +45,7 @@ public class SortingAlgorithm extends JPanel {
         g2d.setColor(Color.CYAN);
         Rectangle2D.Float bar;
 
-        for(int i = 0; i < SIZE; i++ ) {
+        for(int i = 0; i < getSIZE(); i++ ) {
             // final float hue = random.nextFloat();
             // final float saturation = 0.9f; //1.0 for brilliant, 0.0 for dull
             // final float luminance = 1.0f; //1.0 for brighter, 0.0 for black
@@ -63,7 +71,7 @@ public class SortingAlgorithm extends JPanel {
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
-                for(current_index = 1; current_index < SIZE; current_index++) {
+                for(current_index = 1; current_index < getSIZE(); current_index++) {
                     traversing_index = current_index;
                     while(traversing_index > 0 && bar_height[traversing_index] < bar_height[traversing_index - 1]) {
                         swap(traversing_index, traversing_index - 1);
@@ -86,13 +94,13 @@ public class SortingAlgorithm extends JPanel {
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
-                for(current_index = 0; current_index < SIZE; current_index++) {
-                    for(traversing_index = 1; traversing_index < (SIZE - current_index); traversing_index++) {
+                for(current_index = 0; current_index < getSIZE(); current_index++) {
+                    for(traversing_index = 1; traversing_index < (getSIZE() - current_index); traversing_index++) {
                         if(bar_height[traversing_index - 1] > bar_height[traversing_index]) {
                             swap(traversing_index, traversing_index - 1);
                             traversing_index--; // just for annimation
 
-                            Thread.sleep(1); // controls the speed
+                            Thread.sleep(10); // controls the speed
                             repaint(); // we need it because we ofter replace the contents of a JPanel
                         }
                     }   
@@ -113,13 +121,13 @@ public class SortingAlgorithm extends JPanel {
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
-                for(current_index = 0; current_index < SIZE; current_index++) {
-                    for(traversing_index = 1; traversing_index < (SIZE - current_index); traversing_index++) {
+                for(current_index = 0; current_index < getSIZE(); current_index++) {
+                    for(traversing_index = 1; traversing_index < (getSIZE() - current_index); traversing_index++) {
                         if(bar_height[traversing_index - 1] > bar_height[traversing_index]) {
                             swap(traversing_index, traversing_index - 1);
                             traversing_index--; // just for annimation
 
-                            Thread.sleep(1); // controls the speed
+                            Thread.sleep(10); // controls the speed
                             repaint(); // we need it because we ofter replace the contents of a JPanel
                         }
                     }   
@@ -141,18 +149,16 @@ public class SortingAlgorithm extends JPanel {
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
-                for(current_index = 0; current_index < SIZE-1; current_index++) {
+                for(current_index = 0; current_index < getSIZE() - 1; current_index++) {
                     int min_index = current_index;
-                    for(int traversing_index = current_index + 1; traversing_index < SIZE; traversing_index++) {
+                    for(int traversing_index = current_index + 1; traversing_index < getSIZE(); traversing_index++) {
                         if (bar_height[traversing_index] < bar_height[min_index]) {
                             min_index = traversing_index;
                         }
                     }
-
                     swap(current_index, min_index);
-                    Thread.sleep(1); // controls the speed
+                    Thread.sleep(10); // controls the speed
                     repaint(); // we need it because we ofter replace the contents of a JPanel
-                
                 } 
  
                 current_index = 0;
@@ -168,12 +174,12 @@ public class SortingAlgorithm extends JPanel {
         shuffler = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
-                int middle = SIZE / 2;
+                int middle = getSIZE() / 2;
                 for (int i = 0, j = middle; i < middle; i++, j++) {
-                    int randow_index = new Random().nextInt(SIZE);
+                    int randow_index = new Random().nextInt(getSIZE());
                     swap(i, randow_index);
 
-                    randow_index = new Random().nextInt(SIZE);
+                    randow_index = new Random().nextInt(getSIZE());
                     swap(j, randow_index);
 
                     Thread.sleep(10);
@@ -192,8 +198,8 @@ public class SortingAlgorithm extends JPanel {
     
     public void initBarHeight() {
         /*Initialize the height of each bar*/
-        float interval = (float)HEIGHT / SIZE;
-        for(int i = 0; i < SIZE; i++) {
+        float interval = (float)HEIGHT / getSIZE();
+        for(int i = 0; i < getSIZE(); i++) {
             bar_height[i] = i * interval;
         }
     }
