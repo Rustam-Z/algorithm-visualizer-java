@@ -12,7 +12,7 @@ import javax.swing.SwingWorker;
 
 public class SortingAlgorithm extends JPanel {
     private final int WIDTH = 800, HEIGHT = WIDTH * 9 / 16;
-    public int SIZE = 50; // the number if sorting elements
+    public int SIZE = 100; // the number if sorting elements
     private final float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
     private float[] bar_height = new float[SIZE]; // height of bars
     private SwingWorker<Void, Void> shuffler, sorter;
@@ -34,15 +34,16 @@ public class SortingAlgorithm extends JPanel {
 
         // Drawing the rectangles
         Graphics2D g2d = (Graphics2D)g;
+        g2d.setColor(Color.CYAN);
         Rectangle2D.Float bar;
 
         for(int i = 0; i < SIZE; i++ ) {
-            final float hue = random.nextFloat();
-            final float saturation = 0.9f; //1.0 for brilliant, 0.0 for dull
-            final float luminance = 1.0f; //1.0 for brighter, 0.0 for black
+            // final float hue = random.nextFloat();
+            // final float saturation = 0.9f; //1.0 for brilliant, 0.0 for dull
+            // final float luminance = 1.0f; //1.0 for brighter, 0.0 for black
 
-            g2d.setColor(Color.getHSBColor(hue, saturation, luminance));
-            bar = new Rectangle2D.Float(i * BAR_WIDTH, 0, BAR_WIDTH, bar_height[i]);
+            // g2d.setColor(Color.getHSBColor(hue, saturation, luminance));
+            bar = new Rectangle2D.Float(i * BAR_WIDTH, 0, BAR_WIDTH-1, bar_height[i]);
             g2d.fill(bar); // g2d.draw(bar);
         }
 
@@ -68,7 +69,7 @@ public class SortingAlgorithm extends JPanel {
                         swap(traversing_index, traversing_index - 1);
                         traversing_index--;
                         
-                        Thread.sleep(1);
+                        Thread.sleep(10);
                         repaint();
                     }
                 }
