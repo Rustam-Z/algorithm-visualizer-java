@@ -143,7 +143,7 @@ public class SortingAlgorithm extends JPanel {
             public Void doInBackground() throws InterruptedException {
                 for(current_index = 0; current_index < SIZE-1; current_index++) {
                     int min_index = current_index;
-                    for(int traversing_index = current_index + 1; traversing_index < SIZE; traversing_index++) {
+                    for(int traversing_index = current_index + 1; traversing_index < SIZE0; traversing_index++) {
                         if (bar_height[traversing_index] < bar_height[min_index]) {
                             min_index = traversing_index;
                         }
