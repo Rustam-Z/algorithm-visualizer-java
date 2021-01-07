@@ -16,7 +16,7 @@ public class SortingAlgorithm extends JPanel {
     public float BAR_WIDTH = (float)WIDTH / SIZE; // bar width
     private float[] bar_height = new float[SIZE]; // height of bars
     private SwingWorker<Void, Void> shuffler, sorter;
-    private int current_index, traversing_index;
+    private int current_index, traversing_index; // needed for following colloring the items
 
     SortingAlgorithm() {
         setBackground(Color.BLACK);
@@ -24,15 +24,19 @@ public class SortingAlgorithm extends JPanel {
         initBarHeight(); // initialize the height of each bar
         // initShuffler(); // shuffle each bar
     }
-    
+
+    // setter for SIZE
     public void setSIZE(int SIZE) {
         this.SIZE = SIZE;
     }
 
+    // getter for SIZE
     int getSIZE() {
         return SIZE;
     }
 
+    // repaint() will automaticly call this function
+    // needed for coloring
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -46,6 +50,7 @@ public class SortingAlgorithm extends JPanel {
         Rectangle2D.Float bar;
 
         for(int i = 0; i < getSIZE(); i++ ) {
+            // random colors
             // final float hue = random.nextFloat();
             // final float saturation = 0.9f; //1.0 for brilliant, 0.0 for dull
             // final float luminance = 1.0f; //1.0 for brighter, 0.0 for black
@@ -68,17 +73,19 @@ public class SortingAlgorithm extends JPanel {
 
     public void insertionSort() {
         /*Insertion sort algorithm*/ 
+        // Multithreading used for hadling the sorting
         sorter = new SwingWorker<>() {
             @Override
-            public Void doInBackground() throws InterruptedException {
+            public Void doInBackground() throws InterruptedException { // function for calling multithreading
+                // Insertion sort algorithm starts
                 for(current_index = 1; current_index < getSIZE(); current_index++) {
                     traversing_index = current_index;
                     while(traversing_index > 0 && bar_height[traversing_index] < bar_height[traversing_index - 1]) {
                         swap(traversing_index, traversing_index - 1);
                         traversing_index--;
                         
-                        Thread.sleep(10);
-                        repaint();
+                        Thread.sleep(10); // controls the speed
+                        repaint(); // we need it because we ofter replace the contents of a JPanel
                     }
                 }
                 current_index = 0;
@@ -182,15 +189,16 @@ public class SortingAlgorithm extends JPanel {
                     randow_index = new Random().nextInt(getSIZE());
                     swap(j, randow_index);
 
-                    Thread.sleep(20);
-                    repaint();
+                    Thread.sleep(10); // controls the speed
+                    repaint(); // we need it because we ofter replace the contents of a JPanel
                 }
                 return null;
             }
+            // after finishing the process
             @Override
 			public void done() {
 				super.done();
-				sorter.execute();
+				sorter.execute(); 
 			}
         };
         shuffler.execute();

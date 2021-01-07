@@ -1,3 +1,9 @@
+/**
+ * Main.java includes:
+ *  - Menus and menu items
+ *  - Main frame
+ */
+
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -66,7 +72,7 @@ public class Main extends JFrame {
                 System.out.println("Menu Item 2 choosed");
             }
             else if (e.getSource() == menuItem2) {
-                System.out.println(" Path Finding Algorith (We will add it in future for portfolio)");
+                System.out.println(" Picture pazzling algorith (We will add it in future for portfolio)");
             }
             setVisible(false); // will close the previous window
         }
