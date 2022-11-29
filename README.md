@@ -12,7 +12,7 @@ Finish date: December 13, 2020
 - [Pathfinding algorithm](https://clementmihailescu.github.io/Pathfinding-Visualizer/) `TODO`
 
 ## First Prototype
-<img src="mvp1.gif">
+<img src="assets/mvp1.gif">
 
 ## How to run?
 ```
@@ -22,7 +22,7 @@ java AlgorithmVisualizer
 
 ## Skills Gained
 - Multi-Threading using Swing Worker
-- Customising Swing Components
+- Customizing Swing Components
 - Working with Graphics 2D
 - Different sorting algorithms
 

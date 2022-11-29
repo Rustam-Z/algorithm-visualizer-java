@@ -94,19 +94,19 @@ public class Sorting extends Main {
                 sortAlgo.initShuffler();
             }
             else if (e.getSource() == jbtMerge) {
-                sortAlgo.mergeSort(); // Merge sort algotithm
+                sortAlgo.mergeSort(); // Merge sort algorithm
                 sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtBubble) {
-                sortAlgo.bubbleSort(); // Bubble sort algotithm
+                sortAlgo.bubbleSort(); // Bubble sort algorithm
                 sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtInsertion) {
-                sortAlgo.insertionSort(); // Insertion algotithm
+                sortAlgo.insertionSort(); // Insertion algorithm
                 sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtSelection) {
-                sortAlgo.selectionSort(); // Insertion algotithm
+                sortAlgo.selectionSort(); // Insertion algorithm
                 sortAlgo.initShuffler(); // shuffling
             }
             else if (e.getSource() == jbtStart) {
