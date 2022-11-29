@@ -14,6 +14,12 @@ Finish date: December 13, 2020
 ## First Prototype
 <img src="mvp1.gif">
 
+## How to run?
+```
+javac AlgorithmVisualizer.java
+java AlgorithmVisualizer
+```
+
 ## Skills Gained
 - Multi-Threading using Swing Worker
 - Customising Swing Components
